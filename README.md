@@ -1,4 +1,9 @@
-# frontend
+# Chat app
+Chat App built with NodeJs, Express, Socket.io, Vuejs, Javascript, Sass
+- Simple chat interface with rooms and some functionalities interface with 3 screens:
+    - Sign up with userName
+    - Select a room
+    - start chatting with people in the room
 
 ## Project setup
 ```
