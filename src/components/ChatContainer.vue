@@ -2,7 +2,6 @@
   <div class="chatConatiner">
     <div class="chat__header">
       <span>  {{ selectedRoom }} </span>
-        <span> {{ connectedUsers }} </span>
     </div>
 
     <div class="chat__inner">
@@ -133,11 +132,6 @@ export default {
     }
   },
 
-  computed: {
-    connectedUsers() {
-    }
-  },
-
   methods: {
     onUpdateMessage(event) {
       this.messageInput = event.target.value;
@@ -175,9 +169,6 @@ export default {
   mounted() {
     this.sockets.subscribe('NEW_MESSAGE', this.handleIncomingMessage);
     this.sockets.subscribe('USER_TYPING', this.handleUserIsTyping);
-    this.sockets.subscribe('connection',(e)=> {
-        console.log(e);
-      });
   }
 }
 </script>

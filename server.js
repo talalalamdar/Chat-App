@@ -9,10 +9,9 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
 });
 
-let user = '';
-let room = '';
-
 io.on('connection', function (socket) {
+    let user = '';
+    let room = '';
 
     socket.on('USER_SIGNEDUP', function(data) {
         user = data.userName
