@@ -22,6 +22,7 @@
         v-if="!!selectedRoom.length"
         v-bind:selectedRoom="selectedRoom"
         v-bind:userName="userName"
+        v-bind:profileImage="profileImage"
       />
     </div>
   </div>
@@ -38,6 +39,7 @@ export default {
   data() {
     return {
       userName: '',
+      profileImage: '' || './assets/profile-ing.jpg',
       signedUp: false,
       selectedRoom: '',
     }
@@ -53,6 +55,7 @@ export default {
     onSubmitUserName(data) {
       this.signedUp = true;
       this.userName = data.userName;
+      this.profileImage = data.profileImage;
     },
 
     onRoomSelected(data) {
