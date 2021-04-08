@@ -2,13 +2,11 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-const path = require('path');
 
 var port = process.env.PORT || 3333;
 
 app.get('/', function (req, res) {
-    const index = path.join(__dirname, 'dist', 'index.html');
-    res.sendFile(index);
+    res.sendFile(__dirname + '../../dist/index.html');
 });
 
 app.use( express.static(__dirname + '../../dist') );
