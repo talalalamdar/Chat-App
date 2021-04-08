@@ -1,12 +1,14 @@
-var express = require('express');
-var app = express();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+const path = require('path');
 
 var port = process.env.PORT || 3333;
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/public/index.html');
+app.get('/', function (req, res) {
+    const index = path.join(__dirname, 'dist', 'index.html');
+    res.sendFile(index);
 });
 
 app.use( express.static(__dirname + './dist') );
