@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
     res.sendFile(index);
 });
 
-app.use( express.static(__dirname + './dist') );
+app.use( express.static(__dirname + '../../dist') );
 
 io.on('connection', function (socket) {
     let user = '';
