@@ -5,6 +5,8 @@ import VueSocketIO from 'vue-socket.io'
 
 const DOMAIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3333' : window.location.origin.replace(/^http/, 'ws');
 
+console.log(process.env.NODE_ENV)
+
 Vue.use(new VueSocketIO({
   connection: io(DOMAIN)
 }));
