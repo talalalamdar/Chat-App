@@ -1,15 +1,17 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-var port = process.env.PORT || 3333;
+const port = process.env.PORT || 3333;
+
+app.use(express.static(__dirname + '../../dist'));
+app.use(cors())
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '../../public/index.html');
 });
-
-app.use( express.static(__dirname + '../../dist') );
 
 io.on('connection', function (socket) {
     let user = '';
